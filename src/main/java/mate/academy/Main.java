@@ -18,12 +18,12 @@ public class Main {
         try {
             user = authenticationService.login("bob", "1234");
         } catch (AuthenticationException e) {
-            logger.error("Cant login", e);
+            logger.error("Can't login user with login: {}", "bob", e);
             return;
         }
         OrderService orderService = new OrderServiceImpl();
         logger.info("Order service object created");
         orderService.completeOrder(user.getUserId());
-        logger.info("Method complete order was called");
+        logger.info("Method complete order was called, userId: {}", user.getUserId());
     }
 }
